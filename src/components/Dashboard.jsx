@@ -33,14 +33,14 @@ function Dashboard() {
   const rows = React.useMemo(
     () => {
       const displayedMiners = showOnlineOnly ? 
-      onlineMiners : [...miners];
+      [...onlineMiners] : [...miners];
       return displayedMiners.sort(getComparator(order, orderBy));
     },
     [order, orderBy, showOnlineOnly]
   );
 
   const handleSortUpdate = (value) => {
-    setOrder(order === 'asc' ? 'desc' : 'asc');
+    setOrder(order === 'asc' && value === orderBy ? 'desc' : 'asc');
     setOrderBy(value);
   }
 
