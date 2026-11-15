@@ -55,7 +55,7 @@ function Dashboard() {
         sx={{ padding: '10px', display: 'flex', flexDirection: 'column'}}
       >
           <Typography variant='subtitle1'>Total Miners</Typography>
-          <Typography variant='h3'>{rows.length}</Typography>
+          <Typography variant='h3'>{miners.length}</Typography>
       </Card>
       <Card 
         variant="outlined" 
@@ -69,7 +69,7 @@ function Dashboard() {
         sx={{ padding: '10px', display: 'flex', flexDirection: 'column'}}
       >
           <Typography variant='subtitle1'>Total Hashrate</Typography>
-          <Typography variant='h3'>{getTotalHashrate(rows.map(r => r.hashrate))}</Typography>
+          <Typography variant='h3'>{getTotalHashrate(miners.map(m => m.hashrate))}</Typography>
           <Typography variant='subtitle1'>TH/s</Typography>
       </Card>
     </div>
@@ -116,7 +116,7 @@ function Dashboard() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.sort(getComparator(order, orderBy)).map((miner) => (
+          {rows.map((miner) => (
             <TableRow
               key={miner.id}
             >
